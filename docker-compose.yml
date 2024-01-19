@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile
+    container_name: web
+    environment:
+      TZ: "Asia/Tokyo"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/opt/typing_app/src
+    depends_on:
+      - db
+
+  db:
+    build: ./docker/db
+    platform: linux/x86_64
+    container_name: db
+    ports:
+      - "3306:3306"
+    volumes:
+      - typing_data:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+    env_file:
+      - ./docker/db/db-variables.env
+    restart: always
+
+volumes:
+  typing_data:
+    driver: local

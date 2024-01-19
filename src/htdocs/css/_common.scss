@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+/* common
+------------------------------------------ */
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Helvetica Neue", "Arial", YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, sans-serif;
+  font-weight: 500;
+  color: #666;
+  @include fontsize(20);
+  min-height: 0;
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(#e0efff,#93c9ff);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+main {
+  padding: 50px 0;
+}
+
+section {
+  &:not(:first-of-type) {
+    margin-top: 50px;
+  }
+}
+
+h1, h2 {
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  text-align: center;
+  @include fontsize(36);
+  letter-spacing: .05em;
+  width: 800px;
+  max-width: calc(100% - 20px);
+  margin: 0 auto .8em;
+}
+
+h2 {
+  @include fontsize(30);
+  margin-bottom: .8em;
+}
+
+p {
+  line-height: 1.8;
+  margin: 1.3em 0 1em;
+  &.more {
+    margin: 50px 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+dl, ul, ol {
+  line-height: 1.6;
+}
+
+a {
+  color: #666;
+  text-underline-offset: .2em;
+  transition: .2s;
+  &:hover {
+    color: #888;
+  }
+}
+
+input, button, textarea, select {
+  color: #333;
+}
+
+input[type="text"],
+input[type="mail"],
+input[type="password"] {
+  border: none;
+  border-radius: 3px;
+  box-shadow: rgb(0 0 0 / 4%) 0px 2px 15px;
+  padding: 0 5px;
+  width: 100%;
+}
+
+label {
+  cursor: pointer;
+}
+
+.button {
+  display: inline-block;
+  width: 140px;
+  border: none;
+  border-radius: 5px;
+  background: #007fff;
+  box-shadow: 0px 2px darken(#007fff, 10%);
+  padding: 10px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  @include fontsize(18);
+  line-height: 1.4;
+  letter-spacing: .07em;
+  font-feature-settings: "palt";
+  transition: .2s;
+  &:hover {
+    background: lighten(#007fff, 10%);
+    color: #fff;
+  }
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+.container {
+  width: 800px;
+  max-width: calc(100% - 20px);
+  margin: 0 auto;
+  &:not(:first-of-type) {
+    margin-top: 50px;
+  }
+}
+
