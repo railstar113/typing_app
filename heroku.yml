@@ -1,5 +1,5 @@
 build:
   docker:
     web: Dockerfile
-  script:
+  prebuild:
     - cd /opt/typing_app/src && composer install
