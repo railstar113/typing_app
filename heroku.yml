@@ -1,7 +1,5 @@
 build:
   docker:
     web: Dockerfile
-  config:
-    DOCUMENT_ROOT: /opt/typing_app/src
-run:
-  web: php composer.phar install
+  script:
+    - cd /opt/typing_app/src && composer install
