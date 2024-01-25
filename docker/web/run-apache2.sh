@@ -6,5 +6,5 @@ sed -ri -e "s/Listen 80/Listen ${PORT:-80}/g" /etc/apache2/ports.conf
 rm /etc/apache2/mods-enabled/mpm_event.conf
 rm /etc/apache2/mods-enabled/mpm_event.load
 cd /opt/typing_app/src
-composer install
+composer install --no-interaction --no-scripts
 apache2-foreground "$@"
