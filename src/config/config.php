@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 
-require __DIR__ . '/../vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+if ($_ENV['APP_ENV'] !== 'production') {
+  require __DIR__ . '/../vendor/autoload.php';
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+  $dotenv->load();
+}
 
 $dbHost = $_ENV['MYSQL_HOST'];
 $dbName = $_ENV['MYSQL_DATABASE'];
