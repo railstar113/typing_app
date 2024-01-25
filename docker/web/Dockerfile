@@ -16,7 +16,7 @@ RUN apt update \
     && apt install -y libonig-dev libzip-dev unzip mariadb-client cron vim less \
     && docker-php-ext-install pdo_mysql mbstring zip
 
-COPY --from=composer:1.10 /usr/bin/composer /usr/bin/composer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 RUN sed -ri -e \
